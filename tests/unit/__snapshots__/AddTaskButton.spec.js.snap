@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTaskButton renders the component 1`] = `
+<button type="button" name="Add Task"><svg role="img" aria-labelledby="title-undefined description-undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <title id="title-undefined">Add Icon</title>
+    <description id="description-undefined">Plus Icon used to describe the button title.</description>
+    <path id="plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+    <path d="M0 0h24v24H0z" fill="none"></path>
+  </svg>
+  Add Task
+</button>
+`;

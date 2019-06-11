@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NamePrompt renders the component 1`] = `
+<form>
+  <section class="header">
+    <h1>Thanks for visiting!</h1>
+    <p>What should we call you?</p>
+  </section>
+  <section>
+    <div class="field"><input type="text" id="Name"> <label for="Name" id="NameLabel" class="">
+        Name
+      </label></div>
+    <!---->
+  </section>
+  <section class="actions"><button type="submit" title="Submit" class="is-large">
+      <!---->
+      Submit
+    </button></section>
+</form>
+`;

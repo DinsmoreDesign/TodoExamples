@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TaskButton renders the component 1`] = `
+<button type="button" title="Delete Completed" class="">
+  <!---->
+  Delete Completed
+</button>
+`;

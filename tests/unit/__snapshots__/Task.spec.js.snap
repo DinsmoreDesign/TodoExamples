@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task renders the component 1`] = `
+<section class="">
+  <div class="done"><label><span class="sr-hide">Done</span> <input type="checkbox" class="checkbox"></label></div>
+  <div class="content">
+    <div class="title-block">
+      <h3>Test Title</h3>
+      <p class="date-block"><strong class="date">2d</strong></p>
+    </div>
+    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem risus, malesuada nec maximus eu, mollis cursus erat proin.</p>
+  </div>
+  <div class="actions"><button><svg role="img" aria-labelledby="editTitle-1 editDescription-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="edit-icon">
+        <title id="editTitle-1">Edit Icon</title>
+        <description id="editDescription-1">Engage to edit current task.</description>
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg></button> <button><svg role="img" aria-labelledby="deleteTitle-1 deleteDescription-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="delete-icon">
+        <title id="deleteTitle-1">Delete Icon</title>
+        <description id="deleteDescription-1">Engage to delete current task.</description>
+        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM8 9h8v10H8V9zm7.5-5l-1-1h-5l-1 1H5v2h14V4z"></path>
+        <path fill="none" d="M0 0h24v24H0V0z"></path>
+      </svg></button></div>
+</section>
+`;

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoHeader renders the component 1`] = `
+<div class="image-header">
+  <header>
+    <section class="name">
+      <h1>Jane Doe's Tasks</h1>
+      <div class="actions">
+        <div class="is-mobile floating-button is-danger">
+          <div class="info-wrapper"><strong>Delete Completed</strong></div>
+          <div class="button-wrapper"><button title="Delete Completed" type="button" class=""><svg role="img" aria-labelledby="deleteTitle-2 deleteDescription-2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="18px" viewBox="5 3 14 18" enable-background="new 5 3 14 18" xml:space="preserve" class="delete-icon">
+                <title id="deleteTitle-2">Delete Icon</title>
+                <description id="deleteDescription-2">Engage to delete all complete tasks.</description>
+                <path fill="#FFFFFF" d="M6,19c0,1.1,0.9,2,2,2h8c1.1,0,2-0.9,2-2V7H6V19z M8,9h8v10H8V9z M15.5,4l-1-1h-5l-1,1H5v2h14V4H15.5z"></path>
+              </svg></button></div>
+        </div> <button type="button" title="Delete Completed" class="is-desktop is-danger"><svg role="img" aria-labelledby="deleteTitle-3 deleteDescription-3" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="18px" viewBox="5 3 14 18" enable-background="new 5 3 14 18" xml:space="preserve" fill="#FFFFFF" class="delete-icon">
+            <title id="deleteTitle-3">Delete Icon</title>
+            <description id="deleteDescription-3">Engage to delete all completed tasks.</description>
+            <path d="M6,19c0,1.1,0.9,2,2,2h8c1.1,0,2-0.9,2-2V7H6V19z M8,9h8v10H8V9z M15.5,4l-1-1h-5l-1,1H5v2h14V4H15.5z"></path>
+          </svg>
+          Delete Completed
+        </button>
+      </div>
+    </section>
+    <section class="info-bar">
+      <div class="remaining">
+        <p class="task-count">75</p>
+        <p>tasks remaining</p>
+      </div>
+      <div class="completed">
+        <div class="svg-item"><svg role="img" aria-labelledby="title-undefined description-undefined" width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+            <title id="title-undefined">Donut Graph</title>
+            <description id="description-undefined">Used to visually show the percentage of items complete.</description>
+            <circle cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" class="donut-ring"></circle>
+            <circle cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="25 75" stroke-dashoffset="25" class="donut-segment"></circle>
+          </svg></div>
+        <p class="percent">25% done</p>
+      </div>
+    </section>
+  </header>
+</div>
+`;

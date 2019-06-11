@@ -1,0 +1,71 @@
+* {
+    font-family: sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.sr-hide {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+:root {
+    --purple: rgba(79, 60, 102, 1);
+    --red: rgba(239, 83, 80, 1);
+    --light-purple: rgba(158, 120, 204, 1);
+
+    --primary-color: var(--purple);
+    --desktop-header-color: rgba(79, 60, 102, 0.9);
+    --overlay-color: rgba(0, 0, 0, 0.2);
+    --background-color: rgba(48, 48, 48, 1);
+    --text-color: rgba(255, 255, 255, 1);
+    --muted-text-color: rgba(255, 255, 255, 0.6);
+    --outline-color: transparent;
+    --dark-task-button-color: rgba(0, 0, 0, 0.2);
+    --light-task-button-color: rgba(0, 0, 0, 0.1);
+    --secondary-color: var(--light-purple);
+    --danger-color: var(--red);
+}
+
+[data-theme='light'] {
+    --primary-color: rgba(255, 255, 255, 1);
+    --desktop-header-color: rgba(255, 255, 255, 0.9);
+    --overlay-color: rgba(79, 60, 102, 0.2);
+    --background-color: rgba(255, 255, 255, 1);
+    --text-color: var(--purple);
+    --muted-text-color: rgba(79, 60, 102, 0.6);
+    --outline-color: var(--purple);
+    --dark-task-button-color: var(--purple);
+    --light-task-button-color: rgba(79, 60, 102, 0.8);
+}
+
+html {
+    background: var(--background-color);
+}
+
+.grid {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(395px, 1fr) ) ;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .grid {
+        padding-left: 7.5%;
+        padding-right: 7.5%;
+    }
+
+}

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders the component 1`] = `
+<div aria-role="dialog" class="modal">
+  <div class="modal-background"></div> <button aria-label="close" tabindex="1" class="modal-close"></button>
+  <div class="modal-content"></div>
+</div>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditTask renders the component 1`] = `
+<form>
+  <section class="header">
+    <h1>Edit</h1>
+  </section>
+  <section>
+    <div class="field"><input type="text" id="Title"> <label for="Title" id="TitleLabel" class="show">
+        Title
+      </label></div>
+    <!---->
+    <div class="field"><textarea id="Description"></textarea> <label for="Description" id="DescriptionLabel" class="show">
+        Description
+      </label></div>
+    <!---->
+  </section>
+  <section class="actions"><button type="button" title="Cancel" class="is-danger is-large">
+      <!---->
+      Cancel
+    </button> <button type="submit" title="Submit" class="is-large">
+      <!---->
+      Submit
+    </button></section>
+</form>
+`;
