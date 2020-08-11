@@ -50,7 +50,7 @@ export default {
     },
     methods: {
 
-        getData() {
+        async getData() {
 
             // On load, query localStorage and set the theme:
 			const theme = localStorage.getItem('theme');
@@ -78,23 +78,25 @@ export default {
 
             this.loading = true;
 
-			// Get all existing items from API:
-			this.$axios.get('/items/')
-				.then(response => {
+            try {
 
-                    this.tasks = response.data;
+                const {
+                    data: {
+                        tasks
+                    }
+                } = await this.$axios.get('/tasks');
+                
+                this.tasks = tasks;
 
-				})
-				.catch(error => {
+                return this.loading = false;
 
-					console.error(error);
+            } catch (error) {
+                
+                console.error(error);
 
-                })
-                .then(() => {
+                return this.loading = false;
 
-                    this.loading = false;
-
-                })
+            };
 
         }
 

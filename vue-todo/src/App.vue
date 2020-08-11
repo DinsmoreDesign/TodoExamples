@@ -123,20 +123,25 @@
 				this.showModal = false;
 
 			},
-			handleAddTask(data) {
+			async handleAddTask(data) {
 
-				return this.$axios.post('/items', data)
-					.then(response => {
+				try {
 
-						this.tasks.push(response.data);
-						this.showModal = false;
+					const {
+						data: {
+							task
+						}
+					} = await this.$axios.post('/task', data)
 
-					})
-					.catch(error => {
+					this.tasks.push(task);
 
-						console.error(error);
+					return this.showModal = false;
 
-					})
+				} catch (error) {
+
+					return console.log(error);
+
+				};
 
 			},
 			closeModal() {

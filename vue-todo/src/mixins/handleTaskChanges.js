@@ -2,26 +2,29 @@ export default {
 
     methods: {
 
-        handleChecked(data) {
+        async handleChecked(data) {
 
-            this.loading = true;
+            try {
 
-            return this.$axios.put('/items/' + data.id, data)
-                .then(response => {
+                this.loading = true;
 
-                    this.tasks[data.index].done = response.data.done;
+                const {
+                    data: {
+                        task
+                    }
+                } = await this.$axios.put('/task/' + data.id, data);
 
-                })
-                .catch(error => {
+                this.tasks[data.index].done = task.done;
 
-                    console.error(error);
+                return this.loading = false;
 
-                })
-                .then(() => {
+            } catch (error) {
 
-                    this.loading = false;
+                console.log(error);
 
-                })
+                return this.loading = false;
+
+            };
 
         },
         handleEdit({ id = '', title = '', description = '', index = null }) {
@@ -38,55 +41,59 @@ export default {
             this.showModal = true;
 
         },
-        handleDelete(data) {
+        async handleDelete(data) {
 
-            this.loading = true;
+            try {
+                
+                this.loading = true;
 
-            return this.$axios.delete('/items/' + data.id, data)
-                .then(response => {
+                await this.$axios.delete('/task/' + data.id, data);
 
-                    this.tasks.splice(data.index, 1);
+                this.tasks.splice(data.index, 1);
 
-                })
-                .catch(error => {
+                return this.loading = false;
 
-                    console.error(error);
+            } catch (error) {
 
-                })
-                .then(() => {
+                console.log(error);
 
-                    this.loading = false;
+                return this.loading = false;
 
-                })
-
-        },
-        handleTaskChange(data) {
-
-            this.loading = true;
-
-            return this.$axios.put('/items/' + data.id, data)
-                .then(response => {
-
-                    this.tasks[data.index] = { ...response.data };
-                    this.showModal = false;
-
-                })
-                .catch(error => {
-
-                    console.error(error);
-
-                })
-                .then(() => {
-
-                    this.loading = false;
-                    
-                })
+            };
 
         },
-        deleteCompleted() {
+        async handleTaskChange(data) {
 
-            this.loading = true;
+            try {
+                
+                this.loading = true;
 
+                const {
+                    data: {
+                        task
+                    }
+                } = await this.$axios.put('/task/' + data.id, {
+                    description: data.description,
+                    title: data.title
+                });
+
+                this.tasks[data.index] = { ...task };
+
+                this.showModal = false;
+                
+                return this.loading = false;
+
+            } catch (error) {
+
+                console.log(error);
+
+                return this.loading = false;
+
+            };
+
+        },
+        async deleteCompleted() {
+            
             let doneTasks = [];
 
             for (const index in this.tasks) {
@@ -100,40 +107,39 @@ export default {
 
                     doneTasks.push(newTask);
 
-                }
+                };
 
             };
 
-            const ajaxRequests = doneTasks.map(task => {
+            try {
+                
+                this.loading = true;
 
-                return this.$axios.delete('/items/' + task.id);
+                await Promise.all(doneTasks.map(task => {
 
-            })
+                    return this.$axios.delete('/task/' + task.id);
+    
+                }));
 
-            Promise.all(ajaxRequests)
-                .then(() => {
+                let count = 0;
+                
+                for (const task of doneTasks) {
 
-                    let count = 0;
+                    this.tasks.splice(task.index - count, 1);
                     
-                    for (const task of doneTasks) {
+                    count++
 
-                        this.tasks.splice(task.index - count, 1);
-                        
-                        count++
+                };
 
-                    }
+                return this.loading = false;
 
-                })
-                .catch(error => {
+            } catch (error) {
 
-                    console.error(error);
+                console.log(error);
 
-                })
-                .then(() => {
+                return this.loading = false;
 
-                    this.loading = false;
-
-                })
+            };
 
         }
 

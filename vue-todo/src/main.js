@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import axios from 'axios';
+import buildApi from '../../api';
 
-axios.defaults.baseURL = 'https://todo-api.cogb.us';
-axios.defaults.headers.common['candidate-uuid'] = 'c2a555b7-b528-4ced-918e-cfd98845cd2d';
+axios.defaults.baseURL = '/api';
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
+
+if (process.env.NODE_ENV === 'development') { buildApi() };
 
 new Vue({
   	render: h => h(App),
