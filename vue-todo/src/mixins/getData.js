@@ -20,7 +20,7 @@ export default {
                 
                 if (!task.done) count++;
 
-            }
+            };
 
             return count;
 
@@ -84,7 +84,7 @@ export default {
                     data: {
                         tasks
                     }
-                } = await this.$axios.get('/tasks');
+                } = await this.$axios.get('/api/tasks');
                 
                 this.tasks = tasks;
 

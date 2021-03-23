@@ -3,18 +3,20 @@ export default {
     methods: {
 
         async handleChecked(data) {
-
+            
             try {
 
                 this.loading = true;
 
                 const {
                     data: {
-                        task
+                        updated
                     }
-                } = await this.$axios.put('/task/' + data.id, data);
+                } = await this.$axios.put('/api/task', data);
 
-                this.tasks[data.index].done = task.done;
+                if (!updated) { throw 'There was a problem updating the task' };
+
+                this.tasks[data.id].done = data.done;
 
                 return this.loading = false;
 
@@ -27,13 +29,14 @@ export default {
             };
 
         },
-        handleEdit({ id = '', title = '', description = '', index = null }) {
+        handleEdit({ id = null, title = '', description = '', done = false, created = '' }) {
 
             const data = {
                 id,
+                created,
                 title,
                 description,
-                index
+                done
             };
 
             this.modalData = data;
@@ -47,9 +50,9 @@ export default {
                 
                 this.loading = true;
 
-                await this.$axios.delete('/task/' + data.id, data);
+                await this.$axios.delete('/api/task/' + data.id, data);
 
-                this.tasks.splice(data.index, 1);
+                this.tasks.splice(data.id, 1);
 
                 return this.loading = false;
 
@@ -70,14 +73,13 @@ export default {
 
                 const {
                     data: {
-                        task
+                        updated
                     }
-                } = await this.$axios.put('/task/' + data.id, {
-                    description: data.description,
-                    title: data.title
-                });
+                } = await this.$axios.put('/api/task', data);
 
-                this.tasks[data.index] = { ...task };
+                if (!updated) { throw 'There was a problem updating the task' };
+
+                this.tasks[data.id] = { ...data };
 
                 this.showModal = false;
                 
@@ -117,7 +119,7 @@ export default {
 
                 await Promise.all(doneTasks.map(task => {
 
-                    return this.$axios.delete('/task/' + task.id);
+                    return this.$axios.delete('/api/task/' + task.id);
     
                 }));
 

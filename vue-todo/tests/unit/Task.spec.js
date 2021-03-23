@@ -78,12 +78,6 @@ describe('Task', () => {
 
     });
 
-    it('renders index prop', () => {
-
-        expect(wrapper.props().data.index).toBe(data.index);
-
-    });
-
     it("reduces opacity if done", () => {
 
         expect(doneWrapper.find('.completed').exists()).toBe(true);

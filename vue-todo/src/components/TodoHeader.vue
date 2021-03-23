@@ -6,7 +6,7 @@
 
             <section class="name">
                 <h1 v-if="userName">{{ userName }}'s Tasks</h1>
-                <div class="actions">
+                <div class="actions" v-if="totalTasks && remainingTasks !== totalTasks">
                     <FloatingButton
                         v-on="$listeners"
                         class="is-mobile"

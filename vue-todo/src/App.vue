@@ -41,16 +41,14 @@
 				</div>
 
 				<div
-					v-if="tasks.length > 0"
-					v-for="(task, index) of tasks"
-					:key="index"
+					v-for="task of tasks"
+					:key="task.id"
 				>
 
 					<LoadingTask v-if="loading || !userName" />
 
 					<Task v-else
 						:data="task"
-						:index="index"
 						@checked="handleChecked"
 						@edit="handleEdit"
 						@delete="handleDelete"
@@ -131,7 +129,7 @@
 						data: {
 							task
 						}
-					} = await this.$axios.post('/task', data)
+					} = await this.$axios.post('/api/task', data)
 
 					this.tasks.push(task);
 

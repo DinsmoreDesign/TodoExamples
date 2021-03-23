@@ -72,13 +72,7 @@
 
             data: {
                 type: Object,
-                required: true,
-                validator: val => {
-
-                    if (val.id === null || val.title === null || val.description === null) return false;
-                    return true
-
-                }
+                required: true
             }
 
         },
@@ -137,13 +131,12 @@
 
                 if (!this.hasTitleError && !this.hasDescriptionError) {
 
-                    if (this.data.index !== null) {
+                    if (this.data.id && this.data.id >= 0) {
 
                         this.$emit('submitEdit', {
+                            ...this.data,
                             title: this.title,
-                            description: this.description,
-                            index: this.data.index,
-                            id: this.data.id
+                            description: this.description
                         });
 
                     } else {

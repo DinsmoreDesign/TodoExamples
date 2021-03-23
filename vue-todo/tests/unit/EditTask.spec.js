@@ -69,7 +69,6 @@ describe('EditTask', () => {
         expect(wrapper.emitted().submitEdit[0][0].id).toBe(data.id);
         expect(wrapper.emitted().submitEdit[0][0].title).toBe(data.title);
         expect(wrapper.emitted().submitEdit[0][0].description).toBe(data.description);
-        expect(wrapper.emitted().submitEdit[0][0].index).toBe(data.index);
         
     })
 

@@ -77,16 +77,6 @@
 
             data: {
                 type: Object,
-                required: true,
-                validator: val => {
-
-                    if (!val.title || !val.created || !val.id || !val.hasOwnProperty('done')) return false;
-                    return true
-
-                }
-            },
-            index: {
-                type: [ String, Number ],
                 required: true
             }
 
@@ -104,7 +94,6 @@
 
                     this.emitEvent('checked', {
                         ...this.data,
-                        index: this.index,
                         done: val
                     })
 
@@ -113,10 +102,7 @@
             },
             emitObject() {
 
-                return {
-                    ...this.data,
-                    index: this.index
-                };
+                return this.data;
 
             },
             dateDiff() {
