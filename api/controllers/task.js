@@ -24,11 +24,11 @@ router.route('/task')
 
         const task = req.body;
         const id = task.id;
-        const hasMatchingTask = !!tasks[id];
+        const taskIndex = tasks.findIndex(item => item.id == id);
 
-        if (!hasMatchingTask) { return res.sendStatus(404) };
+        if (taskIndex === -1) { return res.sendStatus(404) };
 
-        tasks[id] = task;
+        tasks[taskIndex] = task;
         
         return res.status(200).send({ updated: true });
 
