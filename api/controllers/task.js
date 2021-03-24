@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
 
 const getDateAsString = require('../utils/getDateAsString')
 const tasks = require('../data/tasks');
@@ -8,11 +9,10 @@ router.route('/task')
     .post((req, res) => {
 
         const attrs = req.body;
-        const id = tasks.length;
         const task = {
             ...attrs,
             created: getDateAsString(),
-            id
+            id: uuidv4()
         };
 
         tasks.push(task);
@@ -54,7 +54,6 @@ router.route('/task/:id')
         
         return res.status(200).send({ deleted: true });
 
-    })
-    
+    });
 
 module.exports = router;

@@ -16,7 +16,9 @@ export default {
 
                 if (!updated) { throw 'There was a problem updating the task' };
 
-                this.tasks[data.id].done = data.done;
+                const taskIndex = this.tasks.findIndex(task => task.id === data.id);
+
+                this.tasks[taskIndex].done = data.done;
 
                 return this.loading = false;
 
@@ -52,7 +54,9 @@ export default {
 
                 await this.$axios.delete('/api/task/' + data.id, data);
 
-                this.tasks.splice(data.id, 1);
+                const taskIndex = this.tasks.findIndex(task => task.id === data.id);
+
+                this.tasks.splice(taskIndex, 1);
 
                 return this.loading = false;
 
@@ -79,7 +83,9 @@ export default {
 
                 if (!updated) { throw 'There was a problem updating the task' };
 
-                this.tasks[data.id] = { ...data };
+                const taskIndex = this.tasks.findIndex(task => task.id === data.id);
+
+                this.tasks[taskIndex] = { ...data };
 
                 this.showModal = false;
                 

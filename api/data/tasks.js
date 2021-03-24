@@ -1,8 +1,11 @@
-const getDateAsString = require('../utils/getDateAsString')
+
+const { v4: uuidv4 } = require('uuid');
+
+const getDateAsString = require('../utils/getDateAsString');
 
 module.exports = [
     {
-        id: 0,
+        id: uuidv4(),
         title: 'My first task',
         description: 'Made today!',
         created: getDateAsString(),
